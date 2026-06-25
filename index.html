@@ -531,23 +531,22 @@ async function loadData() {
   const dataRows = csvToObjects(await fetchCSV(CONFIG.sheets_dados));
   const map = {};
   dataRows.forEach(row => {
-    if (!row.id) return;
-    if (!map[row.id]) {
-      map[row.id] = {
-        id:         row.id,
+    if (!row.objecao) return;
+    if (!map[row.objecao]) {
+      map[row.objecao] = {
         objecao:    row.objecao    || '',
         quis_dizer: row.quis_dizer || '',
         perfis:     {}
       };
     }
     if (row.perfil) {
-      map[row.id].perfis[row.perfil] = {
+      map[row.objecao].perfis[row.perfil] = {
         argumento:  row.argumento  || '',
         fechamento: row.fechamento || ''
       };
     }
   });
-
+  
   objecoes = Object.values(map);
 }
 
