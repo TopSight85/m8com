@@ -495,9 +495,23 @@ function csvToObjects(text) {
 // ── FETCH ──────────────────────────────────────────────
 
 async function fetchCSV(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+  if (!url || url.startsWith('COLE_AQUI')) {
+    throw new Error('URL não configurada. Edite o bloco CONFIG no topo do arquivo.');
+  }
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.text();
+  } catch (err) {
+    clearTimeout(timeout);
+    if (err.name === 'AbortError') {
+      throw new Error('Tempo limite excedido. Verifique a URL e a conexão.');
+    }
+    throw err;
+  }
 }
 
 async function loadData() {
