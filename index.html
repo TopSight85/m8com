@@ -210,7 +210,6 @@
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    overflow: hidden;
     background: var(--surface2);
     border-bottom: 1px solid var(--border);
     transition: background 0.2s;
@@ -408,9 +407,9 @@
 //  CONFIGURAÇÃO DO CLIENTE — edite apenas esta seção
 // ═══════════════════════════════════════════════════════
 const CONFIG = {
-  titulo:        "Guia de Objeções | M8 Comunicação",
-  sheets_config: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pub?gid=766132106&single=true&output=csv",
-  sheets_dados:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pub?gid=0&single=true&output=csv"
+  titulo:        "Guia de Objeções : <b>M8 Comunicação</b>",
+  sheets_config: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pubhtml?gid=766132106&single=true",
+  sheets_dados:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pubhtml?gid=0&single=true"
 };
 // ═══════════════════════════════════════════════════════
 
@@ -446,10 +445,10 @@ function stripHTML(html) {
 }
 
 function parseCSV(text) {
-  const rows    = [];
-  let row       = [];
-  let field     = '';
-  let inQuotes  = false;
+  const rows   = [];
+  let row      = [];
+  let field    = '';
+  let inQuotes = false;
 
   for (let i = 0; i < text.length; i++) {
     const ch   = text[i];
@@ -499,7 +498,7 @@ async function fetchCSV(url) {
     throw new Error('URL não configurada. Edite o bloco CONFIG no topo do arquivo.');
   }
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
+  const timeout = setTimeout(() => controller.abort(), 10000);
   try {
     const res = await fetch(url, { signal: controller.signal });
     clearTimeout(timeout);
@@ -515,7 +514,7 @@ async function fetchCSV(url) {
 }
 
 async function loadData() {
-  // Aba CONFIG
+  // Aba CONFIG — perfis e cores
   const configRows = csvToObjects(await fetchCSV(CONFIG.sheets_config));
   configRows.forEach(row => {
     if (!row.perfil) return;
@@ -527,7 +526,7 @@ async function loadData() {
     };
   });
 
-  // Aba DADOS — agrupa por id
+  // Aba DADOS — agrupa pelo texto da objeção
   const dataRows = csvToObjects(await fetchCSV(CONFIG.sheets_dados));
   const map = {};
   dataRows.forEach(row => {
@@ -546,8 +545,9 @@ async function loadData() {
       };
     }
   });
-  
+
   objecoes = Object.values(map);
+}
 
 
 // ── FILTROS ────────────────────────────────────────────
@@ -643,10 +643,10 @@ function render() {
 
     const perfisHTML = perfisParaMostrar.map(p => {
       if (!o.perfis[p]) return '';
-      const d   = o.perfis[p];
-      const c   = perfisConfig[p];
-      const keyArg = `${o.id}-${p}-arg`;
-      const keyFec = `${o.id}-${p}-fec`;
+      const d      = o.perfis[p];
+      const c      = perfisConfig[p];
+      const keyArg = `${o.objecao}-${p}-arg`;
+      const keyFec = `${o.objecao}-${p}-fec`;
       copyTexts[keyArg] = stripHTML(d.argumento);
       copyTexts[keyFec] = stripHTML(d.fechamento);
 
@@ -682,8 +682,8 @@ function render() {
     }).join('');
 
     return `
-      <div class="card open" id="card-${o.id}">
-        <div class="card-header" data-id="${o.id}"
+      <div class="card open" id="card-${CSS.escape(o.objecao)}">
+        <div class="card-header" data-objecao="${o.objecao.replace(/"/g, '&quot;')}"
              style="border-left:4px solid ${headerAccent}">
           <span class="quote-icon" style="color:${headerAccent}">"</span>
           <div class="card-header-content">
@@ -713,10 +713,12 @@ function render() {
 document.getElementById('container').addEventListener('click', e => {
   const header = e.target.closest('.card-header');
   if (header) {
-    document.getElementById(`card-${header.dataset.id}`)
-            .classList.toggle('open');
+    const objecao = header.dataset.objecao;
+    const card = document.getElementById(`card-${CSS.escape(objecao)}`);
+    if (card) card.classList.toggle('open');
     return;
   }
+
   const btn = e.target.closest('.copy-btn');
   if (btn) {
     const text = copyTexts[btn.dataset.key];
