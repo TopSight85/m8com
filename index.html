@@ -461,7 +461,7 @@ async function loadData() {
     if (!row.perfil) return;
     const cor = row.cor || '#6366f1';
     perfisConfig[row.perfil] = {
-      label:  row.label || row.perfil,
+      label:  row.perfil,
       cor:    cor,
       cor_bg: hexToRgba(cor, 0.15)
     };
