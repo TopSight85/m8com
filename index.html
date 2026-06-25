@@ -18,16 +18,13 @@
     --green: #10b981;
     --amber: #f59e0b;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
   }
-
   .header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -40,7 +37,6 @@
     z-index: 100;
     backdrop-filter: blur(10px);
   }
-
   .logo {
     font-size: 15px;
     font-weight: 700;
@@ -48,9 +44,7 @@
     white-space: nowrap;
     letter-spacing: -0.3px;
   }
-
   .search-wrap { flex: 1; position: relative; }
-
   .search-icon {
     position: absolute;
     left: 12px;
@@ -60,7 +54,6 @@
     font-size: 14px;
     pointer-events: none;
   }
-
   .search-bar {
     width: 100%;
     background: var(--surface2);
@@ -73,11 +66,9 @@
     outline: none;
     transition: border-color 0.2s;
   }
-
   .search-bar:focus { border-color: var(--accent); }
   .search-bar::placeholder { color: var(--text-muted); }
   .search-bar:disabled { opacity: 0.4; cursor: not-allowed; }
-
   .filters {
     padding: 12px 24px;
     display: flex;
@@ -87,7 +78,6 @@
     background: var(--surface);
     border-bottom: 1px solid var(--border);
   }
-
   .filter-label {
     font-size: 11px;
     font-weight: 600;
@@ -96,7 +86,6 @@
     color: var(--text-muted);
     margin-right: 4px;
   }
-
   .filter-pill {
     padding: 5px 14px;
     border-radius: 20px;
@@ -112,9 +101,7 @@
     align-items: center;
     gap: 6px;
   }
-
   .filter-pill:hover { border-color: var(--accent); color: var(--accent-light); }
-
   .dot {
     width: 7px;
     height: 7px;
@@ -122,13 +109,11 @@
     display: inline-block;
     flex-shrink: 0;
   }
-
   .main {
     padding: 24px;
     max-width: 860px;
     margin: 0 auto;
   }
-
   .results-info {
     font-size: 12px;
     color: var(--text-muted);
@@ -138,7 +123,6 @@
     gap: 8px;
     min-height: 24px;
   }
-
   .results-info span {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -147,7 +131,6 @@
     font-weight: 600;
     color: var(--text);
   }
-
   .loading {
     display: flex;
     flex-direction: column;
@@ -157,7 +140,6 @@
     color: var(--text-muted);
     gap: 16px;
   }
-
   .spinner {
     width: 32px;
     height: 32px;
@@ -166,10 +148,8 @@
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }
-
   @keyframes spin { to { transform: rotate(360deg); } }
   .loading p { font-size: 14px; }
-
   .error-state {
     background: rgba(244,63,94,0.08);
     border: 1px solid rgba(244,63,94,0.25);
@@ -178,7 +158,6 @@
     text-align: center;
     color: #fb7185;
   }
-
   .error-state .icon { font-size: 28px; margin-bottom: 10px; }
   .error-state p { font-size: 13px; line-height: 1.6; }
   .error-state code {
@@ -190,7 +169,6 @@
     margin-top: 10px;
     word-break: break-all;
   }
-
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -199,9 +177,7 @@
     overflow: hidden;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-
   .card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.35); }
-
   .card-header {
     cursor: pointer;
     user-select: none;
@@ -214,9 +190,7 @@
     border-bottom: 1px solid var(--border);
     transition: background 0.2s;
   }
-
   .card-header:hover { background: #22222f; }
-
   .quote-icon {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
@@ -225,9 +199,7 @@
     margin-top: 1px;
     opacity: 0.9;
   }
-
   .card-header-content { flex: 1; min-width: 0; }
-
   .objecao-label {
     font-size: 10px;
     font-weight: 700;
@@ -236,7 +208,6 @@
     margin-bottom: 5px;
     opacity: 0.7;
   }
-
   .objecao-text {
     font-size: 17px;
     font-weight: 600;
@@ -244,7 +215,6 @@
     line-height: 1.35;
     letter-spacing: -0.2px;
   }
-
   .chevron {
     color: var(--text-muted);
     font-size: 18px;
@@ -253,22 +223,17 @@
     flex-shrink: 0;
     margin-top: 4px;
   }
-
   .card.open .chevron { transform: rotate(180deg); }
-
   .card-body {
     display: none;
     padding: 20px;
     animation: fadeIn 0.2s ease;
   }
-
   .card.open .card-body { display: block; }
-
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-6px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .quis-dizer-block {
     background: var(--surface2);
     border-radius: 8px;
@@ -276,17 +241,14 @@
     padding: 12px 14px;
     margin-bottom: 16px;
   }
-
   .perfil-section { margin-bottom: 12px; }
   .perfil-section:last-child { margin-bottom: 0; }
-
   .perfil-header {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
   }
-
   .perfil-badge {
     font-size: 11px;
     font-weight: 600;
@@ -295,38 +257,32 @@
     letter-spacing: 0.3px;
     white-space: nowrap;
   }
-
   .perfil-divider {
     flex: 1;
     height: 1px;
     background: var(--border);
   }
-
   .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
-
   @media (max-width: 600px) {
     .info-grid { grid-template-columns: 1fr; }
     .main { padding: 16px; }
     .header { padding: 12px 16px; }
   }
-
   .info-block {
     background: var(--surface2);
     border-radius: 8px;
     padding: 12px 14px;
   }
-
   .info-block-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
   }
-
   .info-label {
     font-size: 10px;
     font-weight: 700;
@@ -334,7 +290,6 @@
     letter-spacing: 0.8px;
     color: var(--text-muted);
   }
-
   .copy-btn {
     background: transparent;
     border: 1px solid var(--border);
@@ -348,16 +303,13 @@
     font-family: 'Inter', sans-serif;
     white-space: nowrap;
   }
-
   .copy-btn:hover { border-color: var(--accent); color: var(--accent-light); }
   .copy-btn.copied { border-color: var(--green); color: var(--green); }
-
   .info-text {
     font-size: 13px;
     line-height: 1.65;
     color: var(--text);
   }
-
   mark {
     background: rgba(245, 158, 11, 0.22);
     color: #fcd34d;
@@ -365,13 +317,11 @@
     padding: 1px 4px;
     font-style: normal;
   }
-
   .empty-state {
     text-align: center;
     padding: 80px 20px;
     color: var(--text-muted);
   }
-
   .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
   .empty-state p { font-size: 14px; }
 </style>
@@ -407,28 +357,23 @@
 //  CONFIGURAÇÃO DO CLIENTE — edite apenas esta seção
 // ═══════════════════════════════════════════════════════
 const CONFIG = {
-  titulo:        "Guia de Objeções : <b>M8 Comunicação</b>",
+  titulo:        "Guia de Objeções - <b>M8 Comunicação</b>",
   sheets_config: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pubhtml?gid=766132106&single=true",
   sheets_dados:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdXg3UdrDe9xTLYljP2GNNEKywz_9CcSchI9JnWSizQklzr-uMvsCzW7JDkUWH8qVHOnGZGaYc0HW8/pubhtml?gid=0&single=true"
 };
 // ═══════════════════════════════════════════════════════
 
-
-// ── STATE ──────────────────────────────────────────────
 let perfilAtivo  = 'todos';
 let busca        = '';
 let perfisConfig = {};
 let objecoes     = [];
 const copyTexts  = {};
 
-
-// ── UTILS ──────────────────────────────────────────────
-
 function hexToRgba(hex, alpha) {
   const r = parseInt(hex.slice(1,3), 16);
   const g = parseInt(hex.slice(3,5), 16);
   const b = parseInt(hex.slice(5,7), 16);
-  return `rgba(${r},${g},${b},${alpha})`;
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
 }
 
 function isLightColor(hex) {
@@ -465,7 +410,7 @@ function parseCSV(text) {
         if (ch === '\r') i++;
         row.push(field.trim());
         field = '';
-        if (row.some(c => c !== '')) rows.push(row);
+        if (row.some(function(c) { return c !== ''; })) rows.push(row);
         row = [];
       } else { field += ch; }
     }
@@ -473,7 +418,7 @@ function parseCSV(text) {
 
   if (field || row.length > 0) {
     row.push(field.trim());
-    if (row.some(c => c !== '')) rows.push(row);
+    if (row.some(function(c) { return c !== ''; })) rows.push(row);
   }
 
   return rows;
@@ -482,27 +427,24 @@ function parseCSV(text) {
 function csvToObjects(text) {
   const rows = parseCSV(text);
   if (rows.length < 2) return [];
-  const headers = rows[0].map(h => h.toLowerCase().trim());
-  return rows.slice(1).map(row => {
+  const headers = rows[0].map(function(h) { return h.toLowerCase().trim(); });
+  return rows.slice(1).map(function(row) {
     const obj = {};
-    headers.forEach((h, i) => { obj[h] = row[i] ?? ''; });
+    headers.forEach(function(h, i) { obj[h] = row[i] !== undefined ? row[i] : ''; });
     return obj;
   });
 }
 
-
-// ── FETCH ──────────────────────────────────────────────
-
 async function fetchCSV(url) {
-  if (!url || url.startsWith('COLE_AQUI')) {
+  if (!url || url.indexOf('COLE_AQUI') === 0) {
     throw new Error('URL não configurada. Edite o bloco CONFIG no topo do arquivo.');
   }
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 10000);
+  const timeout = setTimeout(function() { controller.abort(); }, 10000);
   try {
     const res = await fetch(url, { signal: controller.signal });
     clearTimeout(timeout);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     return res.text();
   } catch (err) {
     clearTimeout(timeout);
@@ -514,22 +456,20 @@ async function fetchCSV(url) {
 }
 
 async function loadData() {
-  // Aba CONFIG — perfis e cores
   const configRows = csvToObjects(await fetchCSV(CONFIG.sheets_config));
-  configRows.forEach(row => {
+  configRows.forEach(function(row) {
     if (!row.perfil) return;
     const cor = row.cor || '#6366f1';
     perfisConfig[row.perfil] = {
       label:  row.label || row.perfil,
-      cor,
+      cor:    cor,
       cor_bg: hexToRgba(cor, 0.15)
     };
   });
 
-  // Aba DADOS — agrupa pelo texto da objeção
   const dataRows = csvToObjects(await fetchCSV(CONFIG.sheets_dados));
   const map = {};
-  dataRows.forEach(row => {
+  dataRows.forEach(function(row) {
     if (!row.objecao) return;
     if (!map[row.objecao]) {
       map[row.objecao] = {
@@ -549,9 +489,6 @@ async function loadData() {
   objecoes = Object.values(map);
 }
 
-
-// ── FILTROS ────────────────────────────────────────────
-
 function buildFilters() {
   const bar = document.getElementById('filtersBar');
   bar.innerHTML = '<span class="filter-label">Perfil</span>';
@@ -561,10 +498,12 @@ function buildFilters() {
   todos.dataset.perfil = 'todos';
   todos.textContent    = 'Todos';
   applyActivePillStyle(todos, '#6366f1');
-  todos.addEventListener('click', () => setFiltro('todos', todos));
+  todos.addEventListener('click', function() { setFiltro('todos', todos); });
   bar.appendChild(todos);
 
-  Object.entries(perfisConfig).forEach(([key, c]) => {
+  Object.entries(perfisConfig).forEach(function(entry) {
+    const key = entry[0];
+    const c   = entry[1];
     const pill = document.createElement('button');
     pill.className      = 'filter-pill';
     pill.dataset.perfil = key;
@@ -575,7 +514,7 @@ function buildFilters() {
 
     pill.appendChild(dot);
     pill.appendChild(document.createTextNode(c.label));
-    pill.addEventListener('click', () => setFiltro(key, pill));
+    pill.addEventListener('click', function() { setFiltro(key, pill); });
     bar.appendChild(pill);
   });
 }
@@ -587,7 +526,7 @@ function applyActivePillStyle(el, cor) {
 }
 
 function setFiltro(perfil, el) {
-  document.querySelectorAll('.filter-pill').forEach(p => {
+  document.querySelectorAll('.filter-pill').forEach(function(p) {
     p.style.background  = '';
     p.style.borderColor = '';
     p.style.color       = '';
@@ -597,135 +536,129 @@ function setFiltro(perfil, el) {
   el.classList.add('active');
   const cor = perfil === 'todos'
     ? '#6366f1'
-    : perfisConfig[perfil]?.cor || '#6366f1';
+    : (perfisConfig[perfil] ? perfisConfig[perfil].cor : '#6366f1');
   applyActivePillStyle(el, cor);
 
   perfilAtivo = perfil;
   render();
 }
 
-
-// ── RENDER ─────────────────────────────────────────────
-
 function render() {
   const container = document.getElementById('container');
   const infoEl    = document.getElementById('resultsInfo');
 
-  const lista = objecoes.filter(o =>
-    !busca ||
-    o.objecao.toLowerCase().includes(busca) ||
-    o.quis_dizer.toLowerCase().includes(busca)
-  );
+  const lista = objecoes.filter(function(o) {
+    return !busca ||
+      o.objecao.toLowerCase().indexOf(busca) !== -1 ||
+      o.quis_dizer.toLowerCase().indexOf(busca) !== -1;
+  });
 
   if (!lista.length) {
     infoEl.innerHTML = '';
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="icon">🔍</div>
-        <p>Nenhuma objeção encontrada.</p>
-      </div>`;
+    container.innerHTML =
+      '<div class="empty-state">' +
+        '<div class="icon">🔍</div>' +
+        '<p>Nenhuma objeção encontrada.</p>' +
+      '</div>';
     return;
   }
 
   const qtd = lista.length;
   infoEl.innerHTML =
-    `<span>${qtd}</span> objeção${qtd !== 1 ? 'ões' : ''} encontrada${qtd !== 1 ? 's' : ''}`;
+    '<span>' + qtd + '</span> objeção' +
+    (qtd !== 1 ? 'ões' : '') + ' encontrada' + (qtd !== 1 ? 's' : '');
 
   const perfisParaMostrar = perfilAtivo === 'todos'
     ? Object.keys(perfisConfig)
     : [perfilAtivo];
 
   const headerAccent = perfilAtivo !== 'todos'
-    ? (perfisConfig[perfilAtivo]?.cor || '#6366f1')
+    ? (perfisConfig[perfilAtivo] ? perfisConfig[perfilAtivo].cor : '#6366f1')
     : '#6366f1';
 
-  container.innerHTML = lista.map(o => {
+  container.innerHTML = lista.map(function(o) {
 
-    const perfisHTML = perfisParaMostrar.map(p => {
+    const perfisHTML = perfisParaMostrar.map(function(p) {
       if (!o.perfis[p]) return '';
       const d      = o.perfis[p];
       const c      = perfisConfig[p];
-      const keyArg = `${o.objecao}-${p}-arg`;
-      const keyFec = `${o.objecao}-${p}-fec`;
+      const keyArg = o.objecao + '-' + p + '-arg';
+      const keyFec = o.objecao + '-' + p + '-fec';
       copyTexts[keyArg] = stripHTML(d.argumento);
       copyTexts[keyFec] = stripHTML(d.fechamento);
 
       const showBadge = perfisParaMostrar.length > 1;
+      const badgeHTML = showBadge
+        ? '<div class="perfil-header">' +
+            '<span class="perfil-badge" style="background:' + c.cor_bg + '; color:' + c.cor + '">' +
+              c.label +
+            '</span>' +
+            '<div class="perfil-divider"></div>' +
+          '</div>'
+        : '';
 
-      return `
-        <div class="perfil-section">
-          ${showBadge ? `
-            <div class="perfil-header">
-              <span class="perfil-badge"
-                style="background:${c.cor_bg}; color:${c.cor}">
-                ${c.label}
-              </span>
-              <div class="perfil-divider"></div>
-            </div>` : ''}
-          <div class="info-grid">
-            <div class="info-block" style="border-left:3px solid ${c.cor}">
-              <div class="info-block-header">
-                <span class="info-label">💬 Argumento / Resposta</span>
-                <button class="copy-btn" data-key="${keyArg}">copiar</button>
-              </div>
-              <div class="info-text">${d.argumento}</div>
-            </div>
-            <div class="info-block" style="border-left:3px solid var(--green)">
-              <div class="info-block-header">
-                <span class="info-label">🃏 Carta na Manga</span>
-                <button class="copy-btn" data-key="${keyFec}">copiar</button>
-              </div>
-              <div class="info-text">${d.fechamento}</div>
-            </div>
-          </div>
-        </div>`;
+      return '<div class="perfil-section">' +
+        badgeHTML +
+        '<div class="info-grid">' +
+          '<div class="info-block" style="border-left:3px solid ' + c.cor + '">' +
+            '<div class="info-block-header">' +
+              '<span class="info-label">💬 Argumento / Resposta</span>' +
+              '<button class="copy-btn" data-key="' + keyArg + '">copiar</button>' +
+            '</div>' +
+            '<div class="info-text">' + d.argumento + '</div>' +
+          '</div>' +
+          '<div class="info-block" style="border-left:3px solid var(--green)">' +
+            '<div class="info-block-header">' +
+              '<span class="info-label">🃏 Carta na Manga</span>' +
+              '<button class="copy-btn" data-key="' + keyFec + '">copiar</button>' +
+            '</div>' +
+            '<div class="info-text">' + d.fechamento + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
     }).join('');
 
-    return `
-      <div class="card open" id="card-${CSS.escape(o.objecao)}">
-        <div class="card-header" data-objecao="${o.objecao.replace(/"/g, '&quot;')}"
-             style="border-left:4px solid ${headerAccent}">
-          <span class="quote-icon" style="color:${headerAccent}">"</span>
-          <div class="card-header-content">
-            <div class="objecao-label" style="color:${headerAccent}">
-              Objeção do cliente
-            </div>
-            <div class="objecao-text">${o.objecao}</div>
-          </div>
-          <span class="chevron">▾</span>
-        </div>
-        <div class="card-body">
-          <div class="quis-dizer-block">
-            <div class="info-label" style="margin-bottom:6px;">
-              🧠 O que o cliente quis dizer
-            </div>
-            <div class="info-text">${o.quis_dizer}</div>
-          </div>
-          ${perfisHTML}
-        </div>
-      </div>`;
+    const cardId = 'card-' + o.objecao.replace(/[^a-zA-Z0-9]/g, '_');
+    const safeObjecao = o.objecao.replace(/"/g, '&quot;');
+
+    return '<div class="card open" id="' + cardId + '">' +
+      '<div class="card-header" data-cardid="' + cardId + '"' +
+           ' style="border-left:4px solid ' + headerAccent + '">' +
+        '<span class="quote-icon" style="color:' + headerAccent + '">"</span>' +
+        '<div class="card-header-content">' +
+          '<div class="objecao-label" style="color:' + headerAccent + '">' +
+            'Objeção do cliente' +
+          '</div>' +
+          '<div class="objecao-text">' + o.objecao + '</div>' +
+        '</div>' +
+        '<span class="chevron">▾</span>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<div class="quis-dizer-block">' +
+          '<div class="info-label" style="margin-bottom:6px;">🧠 O que o cliente quis dizer</div>' +
+          '<div class="info-text">' + o.quis_dizer + '</div>' +
+        '</div>' +
+        perfisHTML +
+      '</div>' +
+    '</div>';
+
   }).join('');
 }
 
-
-// ── EVENTOS ────────────────────────────────────────────
-
-document.getElementById('container').addEventListener('click', e => {
+document.getElementById('container').addEventListener('click', function(e) {
   const header = e.target.closest('.card-header');
   if (header) {
-    const objecao = header.dataset.objecao;
-    const card = document.getElementById(`card-${CSS.escape(objecao)}`);
+    const card = document.getElementById(header.dataset.cardid);
     if (card) card.classList.toggle('open');
     return;
   }
-
   const btn = e.target.closest('.copy-btn');
   if (btn) {
-    const text = copyTexts[btn.dataset.key];
-    navigator.clipboard.writeText(text).then(() => {
+    const text = copyTexts[btn.dataset.key] || '';
+    navigator.clipboard.writeText(text).then(function() {
       btn.textContent = '✓ copiado';
       btn.classList.add('copied');
-      setTimeout(() => {
+      setTimeout(function() {
         btn.textContent = 'copiar';
         btn.classList.remove('copied');
       }, 2000);
@@ -733,16 +666,13 @@ document.getElementById('container').addEventListener('click', e => {
   }
 });
 
-document.getElementById('searchInput').addEventListener('input', e => {
+document.getElementById('searchInput').addEventListener('input', function(e) {
   busca = e.target.value.toLowerCase().trim();
   render();
 });
 
-
-// ── INIT ───────────────────────────────────────────────
-
 async function init() {
-  document.getElementById('logoTitulo').textContent = `⚡ ${CONFIG.titulo}`;
+  document.getElementById('logoTitulo').textContent = '⚡ ' + CONFIG.titulo;
   document.title = CONFIG.titulo;
 
   try {
@@ -751,14 +681,14 @@ async function init() {
     document.getElementById('searchInput').disabled = false;
     render();
   } catch (err) {
-    document.getElementById('container').innerHTML = `
-      <div class="error-state">
-        <div class="icon">⚠️</div>
-        <p>Não foi possível carregar os dados.<br>
-           Verifique se as URLs do Google Sheets estão corretas
-           e se a planilha está publicada na web.</p>
-        <code>${err.message}</code>
-      </div>`;
+    document.getElementById('container').innerHTML =
+      '<div class="error-state">' +
+        '<div class="icon">⚠️</div>' +
+        '<p>Não foi possível carregar os dados.<br>' +
+           'Verifique se as URLs do Google Sheets estão corretas ' +
+           'e se a planilha está publicada na web.</p>' +
+        '<code>' + err.message + '</code>' +
+      '</div>';
   }
 }
 
