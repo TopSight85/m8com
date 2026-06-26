@@ -565,8 +565,8 @@ function render() {
 
   const qtd = lista.length;
   infoEl.innerHTML =
-    '<span>' + qtd + '</span> objeção' +
-    (qtd !== 1 ? 'ões' : '') + ' encontrada' + (qtd !== 1 ? 's' : '');
+    '<span>' + qtd + '</span> ' +
+    (qtd !== 1 ? 'objeções encontradas' : 'objeção encontrada');
 
   const perfisParaMostrar = perfilAtivo === 'todos'
     ? Object.keys(perfisConfig)
